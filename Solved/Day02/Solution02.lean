@@ -1,5 +1,5 @@
-def a := "A"
+def a := "This is problem 2"
 
-def solve2 : IO Unit :=
+def solvePart1 : IO Unit :=
   IO.println s!"Hello, {a}!"
 

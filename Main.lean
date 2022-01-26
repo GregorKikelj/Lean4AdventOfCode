@@ -1,4 +1,4 @@
-import Solver
+import Solution01
 
-def main : IO Unit :=
-  IO.println s!"Hello, {a}!"
+def main :=
+  solvePart1
