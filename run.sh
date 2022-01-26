@@ -1,1 +1,1 @@
-lake build && ./build/bin/grekiki
+lake clean; lake build && ./build/bin/grekiki
