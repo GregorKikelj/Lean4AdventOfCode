@@ -1,4 +1,4 @@
 import Lake
 open System Lake DSL
 
-package a
+package solution01
