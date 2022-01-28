@@ -1,5 +1,3 @@
-def a := "This is problem 1"
-
-def solvePart1 : IO Unit :=
-  IO.println s!"Hello, {a}!"
-
+def solvePart1 : IO UInt32 := do
+    IO.print "Lean seems to be somewhat working right now ¬"
+    return 0
