@@ -1,7 +1,9 @@
 import Solution01
 
-def main :=
-  solvePart1
+def main : IO UInt32 := do
+  let s <- solvePart1 "small.txt"
+  IO.println "Running main"
+  return 2
 
 
 def sumList : List Int -> Int
@@ -21,7 +23,6 @@ theorem rmul2 :∀ a b : Nat, a=b → 2*a=2*b := by
   intro a b p
   simp [*] at *
 
-#check Nat.mul_pos
 theorem mulLeftCancel :∀ a b c : Nat, a>0 → a*b=a*c → b=c := by
   intro a b c ha habc
   revert b
@@ -62,14 +63,8 @@ theorem mulLeftCancel :∀ a b c : Nat, a>0 → a*b=a*c → b=c := by
       simp
       exact ih b q
 
-theorem mulr2 : ∀ a b : Nat, 2*a=2*b → a=b := by
-  sorry
 
-theorem mul2iff : ∀ a b : Nat, a = b ↔ 2*a=2*b := by
-  intro a b
-  apply Iff.intro
-  . exact rmul2 a b 
-  . exact mulr2 a b
+
 
 theorem muldiveq :∀ a : Nat, 2*a/2=a := by
   intro a
@@ -88,10 +83,6 @@ theorem muldiveq :∀ a : Nat, 2*a/2=a := by
 def sumToN: (x:Nat) -> Nat 
   | 0 => 0
   | x+1 => x+1 + sumToN x
-
-#eval sumToN 5
-#eval 5*6/2
-
 theorem sumToNopt: ∀n:Nat, 2*(sumToN n)=n*(n+1) := by
   intro n
   induction n with
@@ -103,3 +94,5 @@ theorem sumToNopt: ∀n:Nat, 2*(sumToN n)=n*(n+1) := by
     apply mulKeepsEqL (2+n) (n+1+1) (n+1)
     rw [Nat.add_comm]
   )
+
+
